@@ -7,14 +7,19 @@
       </form>
     </div>
     <div class="col-6 text-end">
+      <ng-container *ngFor="let sort of sorts">
+        <!-- <span *ngIf="sort.inUse">{{ sort.name }}</span> -->
+        <!-- <ngb-alert *ngIf="sort.inUse" class="shadow-sm d-inline-block chips" type="custom" ><strong>{{sort.name}}</strong></ngb-alert> -->
+        <div class="btn chips" *ngIf="sort.inUse">{{sort.name}} <strong>✕</strong></div>
+      </ng-container>
       <div ngbDropdown class="d-inline-block">
         <button class="btn btn-outline-primary" id="sortDropdown" ngbDropdownToggle>Sortuj</button>
         <div ngbDropdownMenu aria-labelledby="sortDropdown">
-          <button ngbDropdownItem>A-Z</button>
-          <button ngbDropdownItem>Z-A</button>
+          <button ngbDropdownItem (click)="addSort('A-Z', 'lexOrder')">A-Z</button>
+          <button ngbDropdownItem (click)="addSort('Z-A', 'lexOrder')">Z-A</button>
           <hr>
-          <button ngbDropdownItem>5-1</button>
-          <button ngbDropdownItem>1-5</button>
+          <button ngbDropdownItem (click)="addSort('5-1', 'rating')">5-1</button>
+          <button ngbDropdownItem (click)="addSort('1-5', 'rating')">1-5</button>
         </div>
       </div>
     </div>
