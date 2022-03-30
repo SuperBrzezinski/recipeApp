@@ -1,0 +1,22 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-6" >
+      <form class="d-flex">
+        <input class="form-control me-2" type="search" placeholder="Czego szukasz?" aria-label="Search">
+        <button class="btn btn-outline-primary" type="submit">Szukaj</button>
+      </form>
+    </div>
+    <div class="col-6 text-end">
+      <div ngbDropdown class="d-inline-block">
+        <button class="btn btn-outline-primary" id="sortDropdown" ngbDropdownToggle>Sortuj</button>
+        <div ngbDropdownMenu aria-labelledby="sortDropdown">
+          <button ngbDropdownItem>A-Z</button>
+          <button ngbDropdownItem>Z-A</button>
+          <hr>
+          <button ngbDropdownItem>5-1</button>
+          <button ngbDropdownItem>1-5</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
