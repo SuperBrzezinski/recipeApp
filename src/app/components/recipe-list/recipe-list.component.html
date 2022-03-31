@@ -10,7 +10,7 @@
       <ng-container *ngFor="let sort of sorts">
         <!-- <span *ngIf="sort.inUse">{{ sort.name }}</span> -->
         <!-- <ngb-alert *ngIf="sort.inUse" class="shadow-sm d-inline-block chips" type="custom" ><strong>{{sort.name}}</strong></ngb-alert> -->
-        <div class="btn chips" *ngIf="sort.inUse">{{sort.name}} <strong>✕</strong></div>
+        <div class="btn chips" *ngIf="sort.inUse" (click)="deleteSort(sort.name)">{{sort.name}} <strong>✕</strong></div>
       </ng-container>
       <div ngbDropdown class="d-inline-block">
         <button class="btn btn-outline-primary" id="sortDropdown" ngbDropdownToggle>Sortuj</button>

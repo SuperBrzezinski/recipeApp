@@ -33,4 +33,9 @@ export class RecipeListComponent implements OnInit {
     let index = this.sorts.findIndex((entry) => entry.name === name);
     this.sorts[index].inUse = !this.sorts[index].inUse;
   }
+
+  deleteSort(name: string) {
+    this.sorts[this.sorts.findIndex((entry) => entry.name === name)].inUse =
+      false;
+  }
 }
