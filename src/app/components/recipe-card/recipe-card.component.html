@@ -2,9 +2,9 @@
   <div class="card" >
     <img src="https://media.kaufland.com/images/PPIM/AP_Content_2708/std.lang.all/79/68/Asset_817968.jpg" class="card-img-top" alt="...">
     <div class="card-body">
-      <h5 class="card-title">{{name}} <span *ngFor="let star of rateToArr(rate)" style="font-size: 16px;"><sup>⭐</sup></span></h5>
-      <p class="card-text"></p>
-      <a href="#" class="btn btn-primary">Zobacz</a>
+      <h5 class="card-title">{{name}}</h5>
+      <p class="card-text">Rating: <span *ngFor="let star of rateToArr(rate)"><sup>⭐</sup></span></p>
+      <button class="btn btn-recipeCard" (click)="seeDetails()">Zobacz</button>
     </div>
   </div>
 </div>

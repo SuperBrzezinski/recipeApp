@@ -1,6 +1,6 @@
 <div class="container-fluid mt-4">
   <nav ngbNav #nav="ngbNav" class="nav-tabs">
-    <ng-container ngbNavItem>
+    <ng-container ngbNavItem [ngbNavItem]="'details'">
       <a ngbNavLink>Szczegóły</a>
       <ng-template ngbNavContent>
         <p>Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth
@@ -9,7 +9,7 @@
           salvia cillum iphone. Seitan aliquip quis cardigan american apparel, butcher voluptate nisi qui.</p>
       </ng-template>
     </ng-container>
-    <ng-container ngbNavItem>
+    <ng-container ngbNavItem [ngbNavItem]="'addRecipe'">
       <a ngbNavLink>Dodaj przepis</a>
       <ng-template ngbNavContent>
         <p>Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko
