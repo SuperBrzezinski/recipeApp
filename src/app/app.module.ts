@@ -6,13 +6,15 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { RecipeListComponent } from './components/recipe-list/recipe-list.component';
 import { RecipeCardComponent } from './components/recipe-card/recipe-card.component';
+import { TabPanelComponent } from './components/tab-panel/tab-panel.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     RecipeListComponent,
-    RecipeCardComponent
+    RecipeCardComponent,
+    TabPanelComponent
   ],
   imports: [
     BrowserModule,
