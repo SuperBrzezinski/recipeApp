@@ -23,7 +23,8 @@
           "value": "150g"
         }
       ],
-      "rating": 4
+      "rating": 4,
+      "imageUrl": "https://d3iamf8ydd24h9.cloudfront.net/pictures/articles/2019/08/1065827-v-1500x1500.jpg"
     },
     {
       "id": 2,
@@ -43,7 +44,8 @@
           "value": "łyżeczka"
         }
       ],
-      "rating": 5
+      "rating": 5,
+      "imageUrl": "https://naukajedzenia.pl/wp-content/uploads/2020/06/jajecznica-z-boczkiem2-1.jpg"
     }
   ],
   "users": []

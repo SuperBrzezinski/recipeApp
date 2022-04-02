@@ -7,6 +7,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { RecipeListComponent } from './components/recipe-list/recipe-list.component';
 import { RecipeCardComponent } from './components/recipe-card/recipe-card.component';
 import { TabPanelComponent } from './components/tab-panel/tab-panel.component';
+import { RecipeDetailsComponent } from './components/recipe-details/recipe-details.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { TabPanelComponent } from './components/tab-panel/tab-panel.component';
     NavbarComponent,
     RecipeListComponent,
     RecipeCardComponent,
-    TabPanelComponent
+    TabPanelComponent,
+    RecipeDetailsComponent
   ],
   imports: [
     BrowserModule,
