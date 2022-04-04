@@ -20,7 +20,6 @@ export class RecipeDetailsComponent implements OnInit {
     this.fetchRecipes.getListener.subscribe((recipes) => {
       this.recipe = recipes[0];
     });
-    // this.fetchRecipes.getListener.unsubscribe();
     this.cardToDetailsCommunicator.getListener.subscribe((recipe) => {
       this.recipe = recipe;
     });
@@ -28,9 +27,5 @@ export class RecipeDetailsComponent implements OnInit {
 
   rateToArr(rate: number) {
     return new Array(rate);
-  }
-
-  takeRecipe(recipe: Recipe) {
-    this.recipe = recipe;
   }
 }
