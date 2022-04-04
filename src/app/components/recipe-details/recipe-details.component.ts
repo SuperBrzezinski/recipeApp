@@ -17,15 +17,19 @@ export class RecipeDetailsComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.init();
+  }
+
+  rateToArr(rate: number) {
+    return new Array(rate);
+  }
+
+  private init() {
     this.fetchRecipes.getListener.subscribe((recipes) => {
       this.recipe = recipes[0];
     });
     this.cardToDetailsCommunicator.getListener.subscribe((recipe) => {
       this.recipe = recipe;
     });
-  }
-
-  rateToArr(rate: number) {
-    return new Array(rate);
   }
 }
