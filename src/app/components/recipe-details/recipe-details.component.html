@@ -3,32 +3,32 @@
     <div class="col-6">
       <div class="row mt-2">
         <div class="col-12">
-          <h1>{{ name }}</h1>
+          <h1>{{ recipe.name }}</h1>
         </div>
       </div>
       <div class="row mt-3">
         <div class="col-12">
-          <h3>Ocena: <span *ngFor="let star of rateToArr(rating)"><sup>⭐</sup></span></h3>
+          <h3>Ocena: <span *ngFor="let star of rateToArr(recipe.rating)"><sup>⭐</sup></span></h3>
         </div>
       </div>
       <div class="row mt-3">
         <div class="col-12">
           <h5>Lista zakupów</h5>
           <ul>
-            <li *ngFor="let ingredient of ingredients">{{ ingredient.name }} - {{ ingredient.value}}</li>
+            <li *ngFor="let ingredient of recipe.ingredients">{{ ingredient.name }} - {{ ingredient.value}}</li>
           </ul>
         </div>
       </div>
     </div>
     <div class="col-6">
-      <img [src]="imgUrl" class="img-fluid" alt="">
+      <img [src]="recipe.imageUrl" class="img-fluid" alt="">
     </div>
   </div>
   <div class="row">
     <h5>Przepis</h5>
     <div class="col-12">
       <ol>
-        <li *ngFor="let step of description">{{ step }}</li>
+        <li *ngFor="let step of recipe.description">{{ step }}</li>
       </ol>
     </div>
   </div>

@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Recipe } from 'src/app/interfaces/recipe';
+import { CardToDetailsCommunicatorService } from 'src/app/services/card-to-details-communicator.service';
+import { FetchRecipesService } from 'src/app/services/fetch-recipes.service';
 
 @Component({
   selector: 'app-recipe-details',
@@ -6,37 +9,28 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./recipe-details.component.scss'],
 })
 export class RecipeDetailsComponent implements OnInit {
-  public name: string = 'Kluski z Twarogiem';
-  public rating: number = 5;
-  public ingredients: any = [
-    {
-      name: 'makaron',
-      value: '250g',
-    },
-    {
-      name: 'sól',
-      value: 'szczypta',
-    },
-    {
-      name: 'twaróg',
-      value: '150g',
-    },
-  ];
-  public imgUrl: string =
-    'https://d3iamf8ydd24h9.cloudfront.net/pictures/articles/2019/08/1065827-v-1500x1500.jpg';
+  public recipe!: Recipe;
 
-  public description: string[] = [
-    'Przygotowujemy garnek wody i solimy go',
-    'Gotujemy wodę',
-    'Gotujemy makaron',
-    'Do ugatowanego makaronu dodajemy twaróg',
-  ];
+  constructor(
+    private fetchRecipes: FetchRecipesService,
+    private cardToDetailsCommunicator: CardToDetailsCommunicatorService
+  ) {}
 
-  constructor() {}
-
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.fetchRecipes.getListener.subscribe((recipes) => {
+      this.recipe = recipes[0];
+    });
+    // this.fetchRecipes.getListener.unsubscribe();
+    this.cardToDetailsCommunicator.getListener.subscribe((recipe) => {
+      this.recipe = recipe;
+    });
+  }
 
   rateToArr(rate: number) {
     return new Array(rate);
+  }
+
+  takeRecipe(recipe: Recipe) {
+    this.recipe = recipe;
   }
 }

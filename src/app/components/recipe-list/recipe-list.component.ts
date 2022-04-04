@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Recipe } from 'src/app/interfaces/recipe';
+import { FetchRecipesService } from 'src/app/services/fetch-recipes.service';
 
 interface SortType {
   name: string;
@@ -12,15 +14,20 @@ interface SortType {
   styleUrls: ['./recipe-list.component.scss'],
 })
 export class RecipeListComponent implements OnInit {
+  public list: Recipe[] = [];
   public sorts: SortType[] = [
     { name: 'A-Z', category: 'lexOrder', inUse: false },
     { name: 'Z-A', category: 'lexOrder', inUse: false },
     { name: '5-1', category: 'rating', inUse: false },
     { name: '1-5', category: 'rating', inUse: false },
   ];
-  constructor() {}
+  constructor(private fetchRecipes: FetchRecipesService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.fetchRecipes.getListener.subscribe((recipes) => {
+      this.list = recipes;
+    });
+  }
 
   addSort(name: string, category: 'lexOrder' | 'rating') {
     // if (this.sorts.includes({name: string category: category })) {

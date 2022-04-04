@@ -9,7 +9,7 @@
         "Gotujemy makaron",
         "Do ugatowanego makaronu dodajemy twaróg"
       ],
-      "ingriedients:": [
+      "ingredients:": [
         {
           "name": "makaron",
           "value": "250g"
@@ -34,7 +34,7 @@
         "Rozbijamy jajka i dodajemy (uwaga! bez skorupki!)",
         "Mieszamy rozbite jajka i czekamy na jajecznice"
       ],
-      "ingriedients:": [
+      "ingredients:": [
         {
           "name": "jajka",
           "value": "3 szt."
