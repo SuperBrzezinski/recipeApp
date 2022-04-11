@@ -1,0 +1,39 @@
+<div class="container-fluid">
+  <h1>Dodaj przepis</h1>
+  <!-- <input [formControl]="recipeNameControl" type="text" placeholder="Nazwa przepisu">
+  <div *ngIf="recipeNameControl.errors?.['minlength']">Nazwa jest zbyt krótka</div>
+  <div *ngIf="recipeNameControl.errors?.['required'] && recipeNameControl.touched">Pole obowiązkowe</div> -->
+  <form [formGroup]="form" (ngSubmit)="send()">
+    <input formControlName="name" type="text" placeholder="Nazwa potrawy">
+    <br>
+    <br>
+    <label for="rating" class="form-label">Dodaj składniki</label><br>
+    <div formArrayName="ingredients">
+      <div *ngFor="let ing of ingredients.controls; let i = index">
+        <div [formGroupName]="i">
+          <input formControlName="name" placeholder="Nazwa składnika">
+          <input formControlName="value" placeholder="ilość">
+        </div>
+        <button>+</button>
+      </div>
+    </div>
+    <br><br>
+    <textarea formControlName="description" placeholder="Wpisz kolejne kroki dodawania przepisu oddzielone ENTERem" cols="70" rows="10"></textarea>
+    <br><br>
+    <label for="rating" class="form-label">Oceń przepis</label><br>
+    <datalist id="tickmarks">
+      <option value="1" label="1"></option>
+      <option value="1" label="2"></option>
+      <option value="1" label="3"></option>
+      <option value="1" label="4"></option>
+      <option value="1" label="5"></option>
+    </datalist>
+    <input formControlName="rating" type="range" class="form-range custom-range" min="1" max="5" step="1" id="rating">
+    <br>
+    <br>
+    <input formControlName="imageUrl" type="text" placeholder="Wpisz adres url obrazka">
+    <!-- <label>{{form.value['rating'] | json}}</label> -->
+  </form>
+  <br><br>
+  <p>{{ form.value | json }}</p>
+</div>

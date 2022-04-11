@@ -6,17 +6,13 @@
         <app-recipe-details></app-recipe-details>
       </ng-template>
     </ng-container>
-    <ng-container ngbNavItem [ngbNavItem]="'addRecipe'">
+    <ng-container ngbNavItem [ngbNavItem]="'form'">
       <a ngbNavLink>Dodaj przepis</a>
       <ng-template ngbNavContent>
-        <p>Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko
-          farm-to-table craft beer twee. Qui photo booth letterpress, commodo enim craft beer mlkshk aliquip jean shorts
-          ullamco ad vinyl cillum PBR. Homo nostrud organic, assumenda labore aesthetic magna delectus mollit. Keytar
-          helvetica VHS salvia yr, vero magna velit sapiente labore stumptown. Vegan fanny pack odio cillum wes anderson
-          8-bit, sustainable jean shorts beard ut DIY ethical culpa terry richardson biodiesel. Art party scenester
-          stumptown, tumblr butcher vero sint qui sapiente accusamus tattooed echo park.</p>
+        <app-recipe-form></app-recipe-form>
       </ng-template>
     </ng-container>
   </nav>
   <div [ngbNavOutlet]="nav" class="mt-2"></div>
 </div>
+<!-- <router-outlet></router-outlet> -->

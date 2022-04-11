@@ -8,7 +8,7 @@ import { Subject, ReplaySubject } from 'rxjs';
 })
 export class FetchRecipesService {
   private dbUrl = 'http://localhost:3000';
-  private $recipes = new ReplaySubject<Recipe[]>(1);
+  private recipes$ = new ReplaySubject<Recipe[]>(1);
 
   constructor(private http: HttpClient) {
     this.getRecipes();
@@ -20,11 +20,11 @@ export class FetchRecipesService {
       .subscribe((fetchedRecipes) => {
         console.log(fetchedRecipes);
 
-        this.$recipes.next(fetchedRecipes);
+        this.recipes$.next(fetchedRecipes);
       });
   }
 
   get getListener() {
-    return this.$recipes;
+    return this.recipes$;
   }
 }
