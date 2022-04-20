@@ -1,18 +1,19 @@
 <div class="container-fluid mt-4">
-  <nav ngbNav #nav="ngbNav" class="nav-tabs">
+  <nav ngbNav #nav="ngbNav" class="nav-tabs" [(activeId)]="activatedTab">
     <ng-container ngbNavItem [ngbNavItem]="'details'">
-      <a ngbNavLink>Szczegóły</a>
+      <a ngbNavLink [routerLink]="'details'">Szczegóły</a>
       <ng-template ngbNavContent>
-        <app-recipe-details></app-recipe-details>
+        <!-- <app-recipe-details></app-recipe-details> -->
+        <router-outlet></router-outlet>
       </ng-template>
     </ng-container>
     <ng-container ngbNavItem [ngbNavItem]="'form'">
-      <a ngbNavLink>Dodaj przepis</a>
+      <a ngbNavLink [routerLink]="'/form'">Dodaj przepis</a>
       <ng-template ngbNavContent>
-        <app-recipe-form></app-recipe-form>
+        <!-- <app-recipe-form></app-recipe-form> -->
+        <router-outlet></router-outlet>
       </ng-template>
     </ng-container>
   </nav>
   <div [ngbNavOutlet]="nav" class="mt-2"></div>
 </div>
-<!-- <router-outlet></router-outlet> -->

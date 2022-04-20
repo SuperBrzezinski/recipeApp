@@ -25,8 +25,10 @@
     </div>
   </div>
   <div class="row g-0">
-    <div *ngFor="let recipe of list" class="col">
-      <app-recipe-card [recipe]="recipe"></app-recipe-card>
-    </div>
+    <!-- <div *ngIf="list | async as list"> -->
+      <div *ngFor="let recipe of list | async" class="col">
+        <app-recipe-card [recipe]="recipe"></app-recipe-card>
+      </div>
+    <!-- </div> -->
   </div>
 </div>

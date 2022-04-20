@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 import { Recipe } from 'src/app/interfaces/recipe';
 import { FetchRecipesService } from 'src/app/services/fetch-recipes.service';
 
@@ -14,7 +15,7 @@ interface SortType {
   styleUrls: ['./recipe-list.component.scss'],
 })
 export class RecipeListComponent implements OnInit {
-  public list: Recipe[] = [];
+  public list!: Observable<Recipe[]>;
   public sorts: SortType[] = [
     { name: 'A-Z', category: 'lexOrder', inUse: false },
     { name: 'Z-A', category: 'lexOrder', inUse: false },
@@ -24,9 +25,10 @@ export class RecipeListComponent implements OnInit {
   constructor(private fetchRecipes: FetchRecipesService) {}
 
   ngOnInit(): void {
-    this.fetchRecipes.getListener.subscribe((recipes) => {
-      this.list = recipes;
-    });
+    // this.fetchRecipes.getRecipesListener.subscribe((recipes) => {
+    //   this.list = recipes;
+    // });
+    this.list = this.fetchRecipes.getRecipes();
   }
 
   addSort(name: string, category: 'lexOrder' | 'rating') {

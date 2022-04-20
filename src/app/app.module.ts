@@ -11,14 +11,7 @@ import { TabPanelComponent } from './components/tab-panel/tab-panel.component';
 import { RecipeDetailsComponent } from './components/recipe-details/recipe-details.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RecipeFormComponent } from './components/recipe-form/recipe-form.component';
-import { RouterModule, Routes } from '@angular/router';
-
-const routes: Routes = [
-  {
-    path: 'yo/:id',
-    component: RecipeFormComponent,
-  },
-];
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
@@ -35,7 +28,7 @@ const routes: Routes = [
     NgbModule,
     HttpClientModule,
     ReactiveFormsModule,
-    RouterModule.forRoot(routes),
+    AppRoutingModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

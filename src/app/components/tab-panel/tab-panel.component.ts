@@ -1,8 +1,8 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 import { NgbNav } from '@ng-bootstrap/ng-bootstrap';
-import { CardToTabCommunicatorService } from 'src/app/services/card-to-tab-communicator.service';
+import { CardToTabService } from 'src/app/services/card-to-tab.service';
 
 @Component({
   selector: 'app-tab-panel',
@@ -14,25 +14,21 @@ export class TabPanelComponent implements OnInit {
 
   activatedTab: string = 'details';
   constructor(
-    private cardToTab: CardToTabCommunicatorService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private cardToTab: CardToTabService
   ) {}
 
   ngOnInit(): void {
-    this.cardToTab.getListener.subscribe(() => this.selectDetails());
-
-    console.log(this.route.snapshot.params['id']);
-
-    this.activatedTab = this.route.snapshot.params['id'];
-
-    console.log(this.activatedTab);
+    this.cardToTab.tab.subscribe((tab) => {
+      this.selectTab(tab);
+    });
   }
 
-  selectDetails() {
-    this.nav.select('details');
-  }
-
-  // selectTab(ngbNavItem: any) {
-  //   this.nav.select(ngbNavItem);
+  // selectDetails() {
+  //   this.nav.select('details');
   // }
+
+  selectTab(tabName: string) {
+    this.nav.select(tabName);
+  }
 }
