@@ -4,7 +4,8 @@
     <div class="card-body">
       <h5 class="card-title">{{recipe.name}}</h5>
       <p class="card-text">Rating: <span *ngFor="let star of rateToArr(recipe.rating)"><sup>⭐</sup></span></p>
-      <button class="btn btn-recipeCard" (click)="seeDetails()">Zobacz</button>
+      <!-- <button class="btn btn-recipeCard" (click)="seeDetails()">Zobacz</button> -->
+      <button class="btn btn-recipeCard" [routerLink]="['details/', recipe.id]" (click)="openDetailsTab()">Zobacz</button>
     </div>
   </div>
 </div>

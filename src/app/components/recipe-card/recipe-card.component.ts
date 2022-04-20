@@ -1,7 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Recipe } from 'src/app/interfaces/recipe';
-import { CardToDetailsCommunicatorService } from 'src/app/services/card-to-details-communicator.service';
-import { CardToTabCommunicatorService } from 'src/app/services/card-to-tab-communicator.service';
+import { CardToTabService } from 'src/app/services/card-to-tab.service';
 
 @Component({
   selector: 'app-recipe-card',
@@ -13,17 +12,12 @@ export class RecipeCardComponent implements OnInit {
   // public name: string = 'Kluski z twarogiem';
   // public rating: number = 5;
 
-  constructor(
-    private cardToTab: CardToTabCommunicatorService,
-    private CardToDetails: CardToDetailsCommunicatorService
-  ) {}
+  constructor(private cardToTab: CardToTabService) {}
 
-  ngOnInit(): void {}
-
-  seeDetails() {
-    this.CardToDetails.getListener.next(this.recipe);
-    this.cardToTab.getListener.next('bang');
+  openDetailsTab() {
+    this.cardToTab.tab.next('details');
   }
+  ngOnInit(): void {}
 
   rateToArr(rate: number) {
     return new Array(rate);
